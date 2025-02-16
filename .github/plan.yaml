@@ -1,8 +1,9 @@
 name: plan-workflow
 
-on: 
+on:
   pull_request:
-    branch: 'master'
+    branches:
+      - '*'
   workflow_dispatch:
     inputs: 
       environment: 'description environment selection'
