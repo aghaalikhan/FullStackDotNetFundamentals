@@ -20,8 +20,8 @@ jobs:
     - name: "echo environment variables"
       run: |
         echo "event name is ${{ github.event_name }}"
-        echo "event name is ${{ $API_KEY }}"
-        echo "event name is ${{ $APP_NAME }}"
+        echo "event name is $API_KEY"
+        echo "event name is $APP_NAME"
       env:
         API_KEY: ${{ vars.API_KEY }}
         APP_NAME: ${{ vars.APP_NAME }}
