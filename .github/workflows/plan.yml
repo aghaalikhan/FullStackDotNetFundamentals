@@ -24,3 +24,4 @@ jobs:
         echo "event name is ${{ github.event_name }}"
         echo "event name is $API_KEY"
         echo "event name is $APP_NAME"
+        echo "Completing workflow..."
