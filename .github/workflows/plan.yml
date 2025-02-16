@@ -1,0 +1,27 @@
+name: plan-workflow
+
+on:
+  pull_request:
+    branches:
+      - 'master'
+  workflow_dispatch:
+    inputs: 
+      environment:
+        description: 'description environment selection'
+        type: environment
+        required: true
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment || 'dev' }}
+    env:
+      API_KEY: ${{ vars.API_KEY }}
+      APP_NAME: ${{ vars.APP_NAME }}
+    steps:
+    - name: "echo environment variables"
+      run: |
+        echo "event name is ${{ github.event_name }}"
+        echo "event name is $API_KEY"
+        echo "event name is $APP_NAME"  
