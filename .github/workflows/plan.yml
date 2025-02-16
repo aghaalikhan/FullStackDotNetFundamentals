@@ -11,17 +11,16 @@ on:
         type: environment
         required: true
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.environment || 'dev' }}
+    environment: ${{ github.event_name == 'pull_request' && 'test' || github.event.inputs.environment }}
     env:
       API_KEY: ${{ vars.API_KEY }}
       APP_NAME: ${{ vars.APP_NAME }}
     steps:
-    - name: "echo environment variables"
+    - name: 'echo environment variables'
       run: |
-        echo "event name is ${{ github.event_name }}"
-        echo "event name is $API_KEY"
-        echo "event name is $APP_NAME"  
+        echo 'event name is ${{ github.event_name }}'
+        echo 'event name is $API_KEY'
+        echo 'event name is $APP_NAME'  
