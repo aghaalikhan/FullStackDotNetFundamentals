@@ -14,7 +14,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: ${{ github.event_name == 'pull_request' && 'test' || github.event.inputs.environment }}
+    environment: ${{ github.event_name == 'pull_request' && 'dev' || github.event.inputs.environment }}
     env:
       API_KEY: ${{ vars.API_KEY }}
       APP_NAME: ${{ vars.APP_NAME }}
