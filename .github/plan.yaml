@@ -3,7 +3,7 @@ name: plan-workflow
 on:
   pull_request:
     branches:
-      - '*'
+      - 'master'
   workflow_dispatch:
     inputs: 
       environment: 'description environment selection'
@@ -15,5 +15,5 @@ jobs:
   build: 
   runs-on: ubuntu-latest
   steps:
-   - run: echo ${{ github.event.name }}
+   - run: echo "event name is ${{ github.event.name }}"
   
